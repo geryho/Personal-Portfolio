@@ -54,66 +54,41 @@
         max-width: auto;
         max-height: auto;
       }
-      .profilepicture {
+
+      .top-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        margin: 10px;
+        font-family: "Roboto", sans-serif;
+      }
+
+      .profile-picture {
         display: flex;
         align-items: center;
-        justify-content: center;
         gap: 10px;
-        padding: 10px;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        align-items: center;
       }
-      .profilepicture img {
+
+      .profile-picture img {
         width: 60px;
         height: 60px;
         border-radius: 50%;
         object-fit: cover;
       }
-      .profilepicture .name h3 {
-        font-size: 1.2rem;
-        font-weight: bold;
-        margin: 0;
-        color: #000000;
+
+      .profile-picture .name h3 {
         font-family: "Oswald", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 700;
-        font-style: normal;
         font-size: 2rem;
-      }
-      .container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 20px;
-        margin: 10px;
+        font-weight: 700;
+        margin: 0;
+        color: black;
       }
       .line {
         margin-left: 10px;
         margin-right: 10px;
       }
-      .nav {
-        text-align: right;
-        max-width: auto;
-        flex-grow: 1;
-        gap: 15px;
-        font-size: 2rem;
-        color: black;
-        font-family: "Roboto", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: <weight>;
-        font-style: normal;
-        font-variation-settings: "wdth" 100;
-      }
-      .nav a {
-        text-decoration: none;
-        font-size: 2rem;
-        font-weight: bold;
-        color: black;
-      }
-      .nav a:hover {
-        text-decoration: underline;
-      }
+
       .main {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -249,36 +224,55 @@
         justify-self: center;
         width: 100%;
       }
+
+      .breadcrumb {
+        list-style: none;
+        display: flex;
+        padding: 0;
+        margin: 0;
+      }
+
+      .breadcrumb li::before {
+        content: "/";
+        margin: 0 15px;
+        color: gray;
+      }
+
+      .breadcrumb li:first-child::before {
+        content: "";
+      }
+
+      .breadcrumb a {
+        text-decoration: none;
+        font-weight: bold;
+        font-size: larger;
+        color: black;
+      }
+
+      .breadcrumb a:hover {
+        text-decoration: underline;
+      }
     </style>
   </head>
   <body>
     <div class="main">
       <header>
-        <div class="container">
-          <div class="profilepicture">
-            <img
-              src="user.png"
-              alt="iconuser"
-              style="width: 60px; height: 60px"
-            />
+        <nav class="top-nav" aria-label="Main Navigation">
+          <div class="profile-picture">
+            <a href="#">
+              <img src="https://placehold.co/600x400" alt="Gery Ho profile picture" />
+            </a>
             <div class="name">
               <h3>Gery Ho</h3>
             </div>
           </div>
-          <div class="nav">
-            <nav>
-              <ul>
-                <a href="#">Home</a>
-                <span>/</span>
-                <a href="#">Project</a>
-                <span>/</span>
-                <a href="#">Articles</a>
-                <span>/</span>
-                <a href="#">Contact</a>
-              </ul>
-            </nav>
-          </div>
-        </div>
+          <ul class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Articles</a></li>
+          </ul>
+        </nav>
+
         <div class="line">
           <hr class="line1" />
           <hr class="line2" />
